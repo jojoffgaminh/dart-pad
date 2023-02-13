@@ -1,0 +1,55 @@
+void main()
+{
+  String variavel = "olá meu nome e matheus";
+  //oi matheus precisa de algo
+  print(variavel);
+  
+  String variavelpergunta = "você pode me ajudar";
+  
+  print(variavelpergunta);
+  //em que você precisa de ajuda
+  
+  double y = 74;
+  double x = 460;
+  
+  double resultado = x * y;
+  print(resultado);
+  //bom a resposta de sua pergunta e 34040
+  
+  String variavelpergunta2 = "tá mais e se fisemos uma divisão com o x da pergunta";
+  
+  print(variavelpergunta2);
+  //bom vamos pegar a x que e 460 e dividir
+  
+  double h = 34040;
+  double u = 460;
+  
+  double resposta = h / u;
+  print(resposta);
+  //ta e agora oque fazemos 
+  
+  String variavelarfimacao = "e se fizermos uma comparação de maior";
+  print(variavelarfimacao);
+  //pode ser interessante so vamos fazer o 34040 vira 34
+  
+  int primeironumero = 74;
+  int segundonumero = 34;
+ 
+  if(primeironumero > segundonumero)
+  {
+   print("o primeiro numero é maior que o segundo");
+  }else
+  {
+   print("o primeiro numero é menor que o segundo"); 
+  }
+  //ta errado ai quando que o segundo e maior?
+  String variavelresposta = 'é mesmo e se nos multiplicase o segundo';
+  print(variavelresposta);
+  // vamos multiplicalo por 5 sera maior que o primeiro
+  
+  double g = 34;
+  double i = 5;
+  
+  double conclusao = g * i;
+  print(conclusao);
+ }  
