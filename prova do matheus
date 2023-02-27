@@ -1,0 +1,85 @@
+import 'package:flutter/material.dart';
+
+import 'dart:convert' as convert;
+
+import 'packge:http/http.dart' as http;
+
+void main(){
+  runApp(BookApp());
+}
+
+class bookApp extend StatelessWidget{
+  @override
+  Widget build(BuildContext){
+    return MaterialApp(
+      theme:ThemeData(
+        primarySwatch:Colors.amber,
+        imputDecorationTheme:const imputDecorationTheme(
+          border:OutlineInputBorder(
+          borderRadius:BorderRadius.all(Radius.circulo(50))
+          ),
+        ),
+      ),
+      home:const HomePage(),
+    );
+  }
+}
+
+class HomePage extend StatefulWidget{
+  const HomePage({key? key}): super(key: key);
+  
+  @override
+  _HomePageState createState()=>_HomePageState();
+}
+
+class_HomePageState extends State<HomePage>{
+ final_controller=textEditingController();
+ var titulo= "";
+ var itemCount=0;
+  
+void_buscarLivros()async{
+  titulo=_controller.text;
+  final url= Uri.https(
+    
+    'www.googleapis.com',
+    '/books/v1/volumes',
+    {'q':'{$titulo}'},
+  );
+  
+  final response=await http.get(url);
+  
+  if(response.statusCode==200){
+    final jsonResponse=convert.jsonDecode(response.nody);
+    itemCount = jsonResponse ['totalltems'];
+    print('Number of books about $titulo: $itemCount.')
+    setState((){});
+  }else{
+    ptint('Request failed with status: ${response.statusCode}.');
+   }
+  }
+
+@override
+  Widget build(buildContext){
+    resturn Scaffold(
+    body: Padding(
+      padding: const Edgelnsets.all(16),
+      child: listView(
+        children;[
+          textField(
+          controller:_controller),
+          const SizedBox(heightr:16),
+          Elevatedbutton.icon(
+            onPressed:_buscarLivros,
+            icon:const icon(icons.search),
+            label:cont text('pesquisar')),
+          const Sizedbox(height:16),
+          text(
+            'foram encontrados $itemCount livros sobre $titulo',
+            style:theme.of(context).textTheme.headiline4,
+          ),
+        ],
+      ),
+    ),
+   );
+  }
+}    
